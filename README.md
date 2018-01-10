@@ -6,14 +6,16 @@ The exercise is to find longest path in a Directed Acyclic Graph.
 This project provides  
 * longestPath implemented as fold of topologically sorted Node list. 
 (see [Solution.hs](/src/Solution.hs), [SolutionSpec](/test/SolutionSpec.hs))
-* Incorrect solution copied from stack overflow that computes longest path in a spanning tree 
+* Incorrect solution copied from [stackoverflow](https://stackoverflow.com/questions/40647260/finding-the-longest-path-through-a-dfs-forest-in-haskell) that computes longest path in a spanning tree 
 computed with BFS.  
 (see [IncorrectSolution.hs](/src/IncorrectSolution.hs), [IncorrectSolutionSpec.hs](/test/IncorrectSolutionSpec.hs))
 * Tests using ArbitraryDag (see [TestData](/test/TestData.hs))
  
-Third bullet is the interesting bit. 
+Third bullet is the interesting bit. `ArbitraryDag` provides a wide range of randomly generated 
+graphs with known longest path.   
 It was totally not obvious to me that the stackoverflow solution is incorrect.
-I only found that after I tried property test.  The code correctly computes longest path in 
+I only found that after tests have failed.  
+The stackoveflow code correctly computes longest path in 
 a spanning tree, however, for some graphs, that is not the same as longest path in the graph.
 
 Code
@@ -24,7 +26,7 @@ Both IncorrectSolution.hs and Solution.hs focus is declarative concept driven co
 
 Tests
 -----
-Here is a snapshot of exemple run
+Here is a snapshot of example run
 ```
 IncorrectSolution
   longest path using incorrect solution
