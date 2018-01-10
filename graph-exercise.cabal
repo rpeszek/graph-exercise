@@ -1,0 +1,67 @@
+-- This file has been generated from package.yaml by hpack version 0.15.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           graph-exercise
+version:        0.1.0.0
+description:    Please see the README on Github at <https://github.com/rpeszek/graph-exercise#readme>
+homepage:       https://github.com/rpeszek/graph-exercise#readme
+bug-reports:    https://github.com/rpeszek/graph-exercise/issues
+author:         Author name here
+maintainer:     rpeszek@github.com
+copyright:      2018 Robert Peszek
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/graph-exercise
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+       base >= 4.7 && < 5
+     , fgl
+     , hashable
+     , unordered-containers
+  exposed-modules:
+      Dag
+      , IncorrectSolution
+      , Solution
+  default-language: Haskell2010
+
+executable graph-exercise-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >= 4.7 && < 5
+    , graph-exercise
+  default-language: Haskell2010
+
+test-suite graph-exercise-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >= 4.7 && < 5
+    , fgl
+    , graph-exercise
+    , QuickCheck
+    , hspec
+    , random
+  default-language: Haskell2010
+  other-modules: 
+      IncorrectSolutionSpec
+     , SolutionSpec 
+     , TestData
