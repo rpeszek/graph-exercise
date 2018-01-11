@@ -18,11 +18,11 @@ longestPath :: Dag gr => Node -> gr a b  -> Maybe Path
 longestPath node graph = 
     let  children :: Node -> [Node] 
          children = suc graph
-         logic ::  HM.HashMap Node Path -> Node -> HM.HashMap Node Path
-         logic acc cnode =  
+         logic ::  Node -> HM.HashMap Node Path -> HM.HashMap Node Path
+         logic cnode acc =  
              let path = ((:) cnode) . maximumByDef [] (comparing length) . map (flip (HM.lookupDefault []) acc) . children $ cnode
              in HM.insert cnode path acc
-         pathPerNode = foldl' logic HM.empty (reverse . topologicalorder $ graph)
+         pathPerNode = foldr logic HM.empty (topologicalorder graph)
     in HM.lookup node pathPerNode 
     
     
