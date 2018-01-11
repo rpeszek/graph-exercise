@@ -28,8 +28,16 @@ bftCounterExample = ExampleDag $ mkUGraph [1,2,3] [(1,2),(1,3),(2,3)]
 
 
 {-| ArbitraryDag is generated guaranteeing dagLongestPath.
-  TODO describe Aribitrary instance generation
-  This type allows arbitrary vertex label a -}
+  This type allows arbitrary vertex label a.
+
+  ArbitraryDag generates a wide range of connected DAGs.
+  The random construction selects longest path first and a core set of sorted vertices.
+  Additional paths are generated at random but these paths use subsets of core vertices and, thus,
+  are shorter.  Additional redundant edges are added randomly in a way that gurantees that 
+  the longest path length is not going to increase.  
+  These edges can introduce new vertices but they are made 'long' enough 
+  (in the sense of topological order) to guarantee that the longest path length is not going to be impacted.  
+-}
 data ArbitraryDag a = ArbitraryDag {
    dagNodes :: [a]
    , dagEdges :: [(a, a)]
