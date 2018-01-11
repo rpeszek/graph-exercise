@@ -5,7 +5,7 @@ import Dag (Dag, topologicalorder)
 import Data.Graph.Inductive.Graph (Node, suc)
 import qualified Data.HashMap.Lazy as HM
 import Data.Ord (comparing)
-import Data.List (length, foldl')
+import Data.List (length)
 import Safe.Foldable (maximumByDef)
 
 type Path = [Node]
