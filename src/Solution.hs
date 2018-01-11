@@ -20,7 +20,7 @@ longestPath node graph =
          children = suc graph
          logic ::  HM.HashMap Node Path -> Node -> HM.HashMap Node Path
          logic acc cnode =  
-             let path = ((:) cnode) . maximumByDef [] (comparing length) . map (flip (HM.lookupDefault []) acc) $ children cnode
+             let path = ((:) cnode) . maximumByDef [] (comparing length) . map (flip (HM.lookupDefault []) acc) . children $ cnode
              in HM.insert cnode path acc
          pathPerNode = foldl' logic HM.empty (reverse . topologicalorder $ graph)
     in HM.lookup node pathPerNode 
