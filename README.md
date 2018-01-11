@@ -5,11 +5,11 @@ The exercise is to find longest path in a Directed Acyclic Graph.
  
 This project provides  
 * longestPath implemented as fold of topologically sorted Node list. 
-(see [Solution.hs](/src/Solution.hs), [SolutionSpec](/test/SolutionSpec.hs))
-* Incorrect solution copied from [stackoverflow](https://stackoverflow.com/questions/40647260/finding-the-longest-path-through-a-dfs-forest-in-haskell) that computes longest path in a spanning tree 
+(see [Solution.hs](/src/Solution.hs), [SolutionSpec.hs](/test/SolutionSpec.hs))
+* Incorrect solution copied from [stackoverflow.hs](https://stackoverflow.com/questions/40647260/finding-the-longest-path-through-a-dfs-forest-in-haskell) that computes longest path in a spanning tree 
 computed with BFS.  
 (see [IncorrectSolution.hs](/src/IncorrectSolution.hs), [IncorrectSolutionSpec.hs](/test/IncorrectSolutionSpec.hs))
-* Tests using ArbitraryDag (see [TestData](/test/TestData.hs))
+* Tests using ArbitraryDag (see [TestData.hs](/test/TestData.hs))
  
 Third bullet is the interesting bit. `ArbitraryDag` provides a wide range of randomly generated 
 graphs with known longest path.   
@@ -20,8 +20,8 @@ a spanning tree, however, for some graphs, that is not the same as longest path 
 
 Code
 ----
-Both IncorrectSolution.hs and Solution.hs focus is declarative concept driven code.  
-`ArbitraryDag` is more imperative brute force. 
+Both IncorrectSolution.hs and Solution.hs focus is declarative, concept driven code.  
+`ArbitraryDag` is more imperative, willy nilly, brute force and could use more thinking.
 
 
 Tests
